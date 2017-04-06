@@ -766,7 +766,8 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
         }
     }
     if (!insetModified) {
-        [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut animations:^{
+        NSTimeInterval duration = self.dynamicHeight ? 0:0.25;
+        [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut animations:^{
             [self _restoreInsetsAnimated:NO];
             [self scrollRectToVisible:CGRectInset(rect, -extend, -extend) animated:NO];
         } completion:NULL];

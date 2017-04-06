@@ -345,12 +345,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic) CGFloat extraAccessoryViewHeight;
 
+@property (nonatomic) BOOL dynamicHeight;
 @end
 
 
 #else // TARGET_INTERFACE_BUILDER
 IB_DESIGNABLE
 @interface YYTextView : UIScrollView <UITextInput>
+
 @property (null_resettable, nonatomic, copy) IBInspectable NSString *text;
 @property (nullable, nonatomic, strong) IBInspectable UIColor *textColor;
 @property (nullable, nonatomic, strong) IBInspectable NSString *fontName_;
