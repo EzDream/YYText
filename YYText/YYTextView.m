@@ -383,6 +383,7 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
     if (_placeholderAttributedText.length > 0) {
         YYTextContainer *container = _innerContainer.copy;
         container.size = self.bounds.size;
+        container.insets = _textContainerInset;
         container.truncationType = YYTextTruncationTypeEnd;
         container.truncationToken = nil;
         YYTextLayout *layout = [YYTextLayout layoutWithContainer:container text:_placeholderAttributedText];
@@ -1899,6 +1900,7 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
     if (UIEdgeInsetsEqualToEdgeInsets(_textContainerInset, textContainerInset)) return;
     [self willChangeValueForKey:@"textContainerInset"];
     _textContainerInset = textContainerInset;
+    [self _updatePlaceholder];
     [self didChangeValueForKey:@"textContainerInset"];
 }
 
